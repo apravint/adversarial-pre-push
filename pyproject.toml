@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "adversarial-pre-push"
+version = "0.1.0"
+description = "6-Phase Adversarial Security Audit Git Hook with Dual-Stage Hunter/Verifier Separation"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "apravint", email = "apravint@users.noreply.github.com" },
+]
+keywords = ["security", "audit", "git-hook", "pre-push", "adversarial", "vulnerability-scanner", "devsecops"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+adversarial-pre-push = "adversarial_pre_push.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/adversarial_pre_push"]
